@@ -9,17 +9,29 @@
     <body>
         <div id="vue-app">
             <h1>Data Binding and Directives</h1>
-            <p><a v-bind:href="website">Milena</a></p>
+            <h3> {{ greet('Morning') }} </br><a v-bind:href="website">Website</a></h3>
             <p v-html="websiteTag"></p>
-            <p><input type="text" v-bind:value="name" /></p>
+            <p><input type="text" v-bind:value="job" /></p>
 
             <h1>Events</h1>
             <button @click="add(1)">Add a Year</button>
             <button v-on:click="substract(1)">Substract a Year</button>
-            <button @dblclick="add(10)">Add 10 Years</button>
-            <button v-on:dblclick="substract(10)">Substract 10 Years</button>
+            <button @dblclick="add(10)">Add 10 Years Doble Click</button>
+            <button v-on:dblclick="substract(10)">Substract 10 Years Doble Click</button>
             <p>My age is {{ age }}</p>
             <div id="canvas" v-on:mousemove="updateXY">{{x}} {{y}} </div>
+            <a v-on:click.prevent="click" href="http://www.milenasuarez.com">Event modifiers prevent new link</a>
+
+            <h1>Keyboards events and Modifiers</h1>
+            <label>Name:</label> 
+            <span>(keyup.enter)</span>
+            <input type="text" v-on:keyup.enter="logName"/>
+            <label>Age:</label>
+            <span>(keyup)</span>
+            <input type="text"  v-on:keyup="logAge"/>
+            <label>LastName:</label>
+            <span>(keyup.alt.enter) Prevent enter</span>
+            <input type="text" v-on:keyup.alt.enter="logName"/>
         </div>
     </body>
 
