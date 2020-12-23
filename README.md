@@ -1,1 +1,1 @@
-# vuejs-playlist
+# vuejs-tutorial
